@@ -1,19 +1,19 @@
 package Enum;
 
 public enum Color {
-	Branco,
-	Preto,
-	Cinza,
-	Prata,
-	Vermelho,
-	Azul,
-	Verde,
-	Amarelo,
-	Laranja,
-	Marrom,
-	Bege,
-	Roxo,
-	Rosa,
-	Dourado,
+	White,
+	Black,
+	Gray,
+	Silver,
+	Red,
+	Blue,
+	Green,
+	Yellow,
+	Orange,
+	Brown,
+	Beige,
+	Purple,
+	Pink,
+	Gold,
 	Bronze
 }
