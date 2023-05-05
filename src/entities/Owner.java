@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Enum.Gender;
 
 public class Owner {
@@ -7,18 +10,23 @@ public class Owner {
 	private String name;
 	private int age;
 	private Address address;
-	private String phone;
+	private List<Phone> listPhone = new ArrayList<>();
 	private String cpf;
 	private Gender gender;
-
-	public Owner() {
-	};
 	
-	public Owner(String name, int age, Address address, String phone, String cpf, Gender gender) {
+	public Owner(String name, int age, String cpf, Gender gender) {
+		
+		this.name = name;
+		this.age = age;
+		this.cpf = cpf;
+		this.gender = gender;
+	}
+	
+	public Owner(String name, int age, Address address, String cpf, Gender gender) {
+		
 		this.name = name;
 		this.age = age;
 		this.address = address;
-		this.phone = phone;
 		this.cpf = cpf;
 		this.gender = gender;
 	}
@@ -47,14 +55,6 @@ public class Owner {
 		this.address = address;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
 	public String getCpf() {
 		return cpf;
 	}
@@ -70,7 +70,17 @@ public class Owner {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-
 	
+	public void addListPhone(Phone phone) {
+		listPhone.add(phone);
+	}
+	
+	public void removeListPhone(Phone phone) {
+		listPhone.remove(phone);
+	}
+	
+	public List<Phone> getListPhone() {
+		return listPhone;
+	}
 	
 }

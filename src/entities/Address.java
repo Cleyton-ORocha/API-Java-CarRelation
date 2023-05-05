@@ -1,40 +1,42 @@
 package entities;
 
+import Enum.UF;
+
 public class Address {
-	private String State;
-	private String City;
-	private String District;
-	private String Street;
+	private UF state;
+	private String city;
+	private String district;
+	private String street;
 	
-	public Address(String state, String city, String district, String street) {
-		State = state;
-		City = city;
-		District = district;
-		Street = street;
+	public Address(UF state, String city, String district, String street) {
+		this.state = state;
+		this.city = city;
+		this.district = district;
+		this.street = street;
 	}
-	public String getState() {
-		return State;
+	public UF getstate() {
+		return state;
 	}
-	public void setState(String state) {
-		State = state;
+	public void setstate(UF state) {
+		this.state = state;
 	}
-	public String getCity() {
-		return City;
+	public String getcity() {
+		return city;
 	}
-	public void setCity(String city) {
-		City = city;
+	public void setcity(String city) {
+		this.city = city;
 	}
-	public String getDistrict() {
-		return District;
+	public String getdistrict() {
+		return district;
 	}
-	public void setDistrict(String district) {
-		District = district;
+	public void setdistrict(String district) {
+		this.district = district;
 	}
-	public String getStreet() {
-		return Street;
+	public String getstreet() {
+		return street;
 	}
-	public void setStreet(String street) {
-		Street = street;
+	public void setstreet(String street) {
+		this.street = street;
 	}
 	
 	

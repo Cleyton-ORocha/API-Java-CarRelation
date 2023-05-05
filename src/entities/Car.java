@@ -1,17 +1,21 @@
 package entities;
 
-import java.time.LocalDate;
-
 import Enum.Brand;
 import Enum.Color;
+import Exceptions.YearCarException;
 
 public class Car {
 	private Brand brand;
-	private LocalDate year;
+	private Integer year;
 	private Color color;
 	private Double price;
 	
-	public Car(Brand brand, LocalDate year, Color color, Double price) {
+	public Car(Brand brand, Integer year, Color color, Double price) {
+		
+		if(year < 1950 && year >2023) {
+			throw new YearCarException("Year of car out of range");
+		}
+		
 		this.brand = brand;
 		this.year = year;
 		this.color = color;
@@ -26,11 +30,11 @@ public class Car {
 		this.brand = brand;
 	}
 
-	public LocalDate getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
-	public void setYear(LocalDate year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
 
