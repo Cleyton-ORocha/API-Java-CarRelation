@@ -1,7 +1,6 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import Enum.Gender;
 
 public class Owner {
 	
@@ -11,20 +10,17 @@ public class Owner {
 	private String phone;
 	private String cpf;
 	private Gender gender;
-	private MaritalStatus maritalStatus;
 
 	public Owner() {
 	};
 	
-	public Owner(String name, int age, Address address, String phone, String cpf, Gender gender,
-			MaritalStatus maritalStatus) {
+	public Owner(String name, int age, Address address, String phone, String cpf, Gender gender) {
 		this.name = name;
 		this.age = age;
 		this.address = address;
 		this.phone = phone;
 		this.cpf = cpf;
 		this.gender = gender;
-		this.maritalStatus = maritalStatus;
 	}
 
 	public String getName() {
@@ -74,17 +70,6 @@ public class Owner {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-
-	public MaritalStatus getMaritalStatus() {
-		return maritalStatus;
-	}
-
-	public void setMaritalStatus(MaritalStatus maritalStatus) {
-		this.maritalStatus = maritalStatus;
-	}
-
-
-	
 
 	
 	

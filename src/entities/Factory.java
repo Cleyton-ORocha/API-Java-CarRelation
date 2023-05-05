@@ -3,12 +3,10 @@ package entities;
 public class Factory{
 	
 	private String name;
-	private Address address;
 	private StringBuilder assemblyLine;
 	
-	public Factory(String name, Address address, StringBuilder assemblyLine) {
+	public Factory(String name, StringBuilder assemblyLine) {
 		this.name = name;
-		this.address = address;
 		this.assemblyLine = assemblyLine;
 	}
 
@@ -18,14 +16,6 @@ public class Factory{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
 	}
 
 	public StringBuilder getAssemblyLine() {
