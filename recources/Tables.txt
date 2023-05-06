@@ -1,0 +1,133 @@
+CREATE TABLE Owner(
+    IDOwner INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    CPF CHAR(11) NOT NULL UNIQUE,
+    Age INT(3) NOT NULL,
+    Gender ENUM("Masculine", "Feminine") NOT NULL
+);
+
+CREATE TABLE Car(
+    IDCar INT PRIMARY KEY AUTO_INCREMENT,
+    Year INT(4) NOT NULL,
+    Price FLOAT(10,2) NOT NULL,
+    Color VARCHAR(12) NOT NULL,
+    Brand VARCHAR(20) NOT NULL,
+    FactoryName VARCHAR(50) NOT NULL, 
+    ID_Owner INT
+);
+
+CREATE TABLE Address(
+    IDAddress INT PRIMARY KEY AUTO_INCREMENT,
+    State CHAR(2) NOT NULL,
+    City VARCHAR(50) NOT NULL, 
+    District VARCHAR(50) NOT NULL, 
+    Street VARCHAR(100) NOT NULL, 
+    ID_Owner INT
+);
+
+CREATE TABLE Phone(
+    IDPhone INT PRIMARY KEY AUTO_INCREMENT,
+    Numero VARCHAR(25) NOT NULL UNIQUE,
+    ID_Owner INT
+);
+
+ALTER TABLE Car
+ADD CONSTRAINT FK_Owner_Car
+FOREIGN KEY (ID_Owner)
+REFERENCES Owner(IDOwner);
+
+ALTER TABLE Address
+ADD CONSTRAINT FK_Owner_Address
+FOREIGN KEY (ID_Owner)
+REFERENCES Owner(IDOwner);
+
+ALTER TABLE Phone
+ADD CONSTRAINT FK_Owner_Phone
+FOREIGN KEY (ID_Owner)
+REFERENCES Owner(IDOwner);
+
+
+INSERT INTO Owner (Name, CPF, Age, Gender) VALUES 
+('Robert Johnson', '11111111111', 40, 'Masculine'),
+('Emily Davis', '22222222222', 28, 'Feminine'),
+('Michael Wilson', '33333333333', 35, 'Masculine'),
+('Sophia Martinez', '44444444444', 32, 'Feminine'),
+('David Anderson', '55555555555', 45, 'Masculine'),
+('Olivia Taylor', '66666666666', 27, 'Feminine'),
+('James Thomas', '77777777777', 39, 'Masculine'),
+('Ava Garcia', '88888888888', 31, 'Feminine'),
+('Daniel Brown', '99999999999', 37, 'Masculine'),
+('Mia Johnson', '12345678901', 29, 'Feminine'),
+('Alexander Davis', '98765432109', 33, 'Masculine'),
+('Emma Wilson', '87654321098', 30, 'Feminine'),
+('Benjamin Martin', '76543210987', 41, 'Masculine'),
+('Isabella Anderson', '65432109876', 34, 'Feminine'),
+('William Taylor', '54321098765', 42, 'Masculine'),
+('Sophia Garcia', '43210987654', 36, 'Feminine'),
+('Joseph Brown', '32109876543', 43, 'Masculine'),
+('Abigail Johnson', '21098765432', 38, 'Feminine'),
+('Michael Davis', '10987654321', 44, 'Masculine'),
+('Emily Wilson', '09876543210', 26, 'Feminine');
+
+INSERT INTO Car (Year, Price, Color, Brand, FactoryName, ID_Owner) VALUES
+(2018, 22000.00, 'Silver', 'Ford', 'Ford Factory', 2),
+(2020, 28000.00, 'Black', 'Chevrolet', 'Chevrolet Factory', 3),
+(2017, 18000.00, 'White', 'Nissan', 'Nissan Factory', 4),
+(2019, 32000.00, 'Red', 'Volkswagen', 'VW Factory', 5),
+(2016, 25000.00, 'Blue', 'Hyundai', 'Hyundai Factory', 6),
+(2022, 35000.00, 'Gray', 'BMW', 'BMW Factory', 7),
+(2015, 20000.00, 'Green', 'Kia', 'Kia Factory', 8),
+(2021, 40000.00, 'Yellow', 'Audi', 'Audi Factory', 9),
+(2014, 18000.00, 'Silver', 'Mazda', 'Mazda Factory', 10),
+(2020, 38000.00, 'Black', 'Mercedes-Benz', 'MB Factory', 11),
+(2013, 15000.00, 'White', 'Toyota', 'Toyota Factory', 12),
+(2018, 27000.00, 'Red', 'Honda', 'Honda Factory', 13),
+(2012, 13000.00, 'Blue', 'Volvo', 'Volvo Factory', 14),
+(2023, 42000.00, 'Silver', 'Jaguar', 'Jaguar Factory', 15),
+(2011, 12000.00, 'Black', 'Subaru', 'Subaru Factory', 16),
+(2019, 34000.00, 'White', 'Lexus', 'Lexus Factory', 17),
+(2010, 11000.00, 'Red', 'Mitsubishi', 'Mitsubishi Factory', 18),
+(2017, 26000.00, 'Blue', 'Land Rover', 'LR Factory', 19),
+(2009, 10000.00, 'Gray', 'Peugeot', 'Peugeot Factory', 20);
+
+INSERT INTO Address (State, City, District, Street, ID_Owner) VALUES
+('SP', 'São Paulo', 'Centro', 'Rua A', 2),
+('RJ', 'Rio de Janeiro', 'Copacabana', 'Avenida B', 3),
+('MG', 'Belo Horizonte', 'Barreiro', 'Rua C', 4),
+('RS', 'Porto Alegre', 'Moinhos de Vento', 'Avenida D', 5),
+('PR', 'Curitiba', 'Batel', 'Rua E', 6),
+('BA', 'Salvador', 'Barra', 'Avenida F', 7),
+('PE', 'Recife', 'Boa Viagem', 'Rua G', 8),
+('CE', 'Fortaleza', 'Meireles', 'Avenida H', 9),
+('SC', 'Florianópolis', 'Centro', 'Rua I', 10),
+('ES', 'Vitória', 'Jardim da Penha', 'Avenida J', 11),
+('GO', 'Goiânia', 'Setor Bueno', 'Rua K', 12),
+('MA', 'São Luís', 'Calhau', 'Avenida L', 13),
+('PB', 'João Pessoa', 'Manaíra', 'Rua M', 14),
+('AM', 'Manaus', 'Ponta Negra', 'Avenida N', 15),
+('MT', 'Cuiabá', 'Centro Político Administrativo', 'Rua O', 16),
+('AL', 'Maceió', 'Ponta Verde', 'Avenida P', 17),
+('TO', 'Palmas', 'Plano Diretor Sul', 'Rua Q', 18),
+('PI', 'Teresina', 'Jóquei', 'Avenida R', 19),
+('SE', 'Aracaju', 'Atalaia', 'Rua S', 20);
+
+INSERT INTO Phone (Numero, ID_Owner) VALUES
+('(11) 98765-4321', 2),
+('(21) 99999-8888', 3),
+('(31) 11111-2222', 4),
+('(51) 33333-4444', 5),
+('(41) 55555-6666', 6),
+('(71) 77777-8888', 7),
+('(81) 99999-1111', 8),
+('(85) 22222-3333', 9),
+('(48) 44444-5555', 10),
+('(27) 66666-7777', 11),
+('(62) 88888-9999', 12),
+('(98) 11111-2222', 13),
+('(83) 33333-4444', 14),
+('(92) 55555-6666', 15),
+('(65) 77777-8888', 16),
+('(82) 99999-1111', 17),
+('(63) 22222-3333', 18),
+('(86) 44444-5555', 19),
+('(79) 66666-7777', 20);

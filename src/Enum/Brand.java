@@ -13,5 +13,6 @@ public enum Brand {
 	Hyundai,
 	Kia,
 	Volvo,
-	Tesla
+	Tesla,
+	Lexus
 }	
