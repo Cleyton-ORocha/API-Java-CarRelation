@@ -8,13 +8,13 @@ public class Query {
 	protected static String selectAllAddress = "SELECT * FROM ADDRESS";
 	protected static String selectAllCars = "SELECT * FROM CAR";
 	protected static String selectAllFactory = "SELECT FACTORYNAME FROM CAR ORDER BY FACTORYNAME";
-	protected static String selectPhones = "SELECT NUMERO FROM";
+	protected static String selectPhones = "SELECT * FROM PHONE";
 
 	
 	protected static String insertOwner = "INSERT INTO OWNER (NAME, CPF, AGE, GENDER) VALUES(?, ?, ?, ?)";
 	protected static String insertAdress = "INSERT INTO ADDRESS (STATE, CITY, DISTRICT, STREET, ID_OWNER) VALUES(?, ?, ?, ?, ?)";
 	protected static String insertCar = "INSERT INTO CAR (YEAR, PRICE, COLOR, BRAND, FACTORYNAME, ID_OWNER) VALUES(?, ?, ?, ?, ?, ?, ?)";
-	protected static String insertPhone = "INSERT INTO PHONE (NUMERO) VALUES(?)";
+	protected static String insertPhone = "INSERT INTO PHONE (NUMERO, ID_OWNER) VALUES(?, ?)";
 	
 	
 	protected static String updateOwner = "UPDATE Owner SET "
@@ -43,6 +43,7 @@ public class Query {
 	
 	protected static String updatePhone = "UPDATE PHONE SET "
 			  + "NUMERO = ?"
+			  + "ID_OWNER = ?"
 			  + "WHERE "; 
 	
 	// DANGER!!!
