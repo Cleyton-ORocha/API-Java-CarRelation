@@ -4,11 +4,11 @@ package DAO;
 public class Query {
 	//Without the WHERE as it will be specified in the function
 	
-	protected String selectAllOwner = "SELECT * FROM OWNER";
-	protected String selectAllAddress = "SELECT * FROM ADDRESS";
-	protected String selectAllCars = "SELECT * FROM CAR";
-	protected String selectAllFactory = "SELECT FACTORYNAME FROM CAR ORDER BY FACTORYNAME";
-	protected String selectPhones = "SELECT NUMERO FROM";
+	protected static String selectAllOwner = "SELECT * FROM OWNER";
+	protected static String selectAllAddress = "SELECT * FROM ADDRESS";
+	protected static String selectAllCars = "SELECT * FROM CAR";
+	protected static String selectAllFactory = "SELECT FACTORYNAME FROM CAR ORDER BY FACTORYNAME";
+	protected static String selectPhones = "SELECT NUMERO FROM";
 
 	
 	protected static String insertOwner = "INSERT INTO OWNER (NAME, CPF, AGE, GENDER) VALUES(?, ?, ?, ?)";
@@ -21,14 +21,16 @@ public class Query {
 			  + "NAME = ?,"
 			  + "CPF = ?,"
 			  + "AGE = ?," 
-			  + "GENDER = ?,";
+			  + "GENDER = ?,"
+			  + "WHERE "; 
 	
 	protected static String updateAddress = "UPDATE ADDRESS SET "
 			  + "STATE = ?,"
 			  + "CITY = ?,"
 			  + "DISTRICT = ?," 
 			  + "STREET = ?,"
-			  + "ID_OWNER = ?"; 
+			  + "ID_OWNER = ?"
+			  + "WHERE "; 
 	
 	protected static String updateCar = "UPDATE CAR SET "
 			  + "YEAR = ?,"
@@ -36,15 +38,17 @@ public class Query {
 			  + "COLOR = ?," 
 			  + "BRAND = ?,"
 			  + "FACTORYNAME = ?"
-			  + "ID_OWNER = ?"; 
+			  + "ID_OWNER = ?"
+			  + "WHERE "; 
 	
 	protected static String updatePhone = "UPDATE PHONE SET "
-			  + "NUMERO = ?"; 
+			  + "NUMERO = ?"
+			  + "WHERE "; 
 	
 	// DANGER!!!
-	protected String deleteIDOwner = "DELETE FROM Owner WHERE ";
-	protected String deleteIDAddress = "DELETE FROM ADDRESS WHERE ";
-	protected String deleteIDCar = "DELETE FROM CAR WHERE ";
-	protected String deleteIDPhone = "DELETE FROM PHONE WHERE ";
+	protected static String deleteIDOwner = "DELETE FROM Owner WHERE ";
+	protected static String deleteIDAddress = "DELETE FROM ADDRESS WHERE ";
+	protected static String deleteIDCar = "DELETE FROM CAR WHERE ";
+	protected static String deleteIDPhone = "DELETE FROM PHONE WHERE ";
 
 }

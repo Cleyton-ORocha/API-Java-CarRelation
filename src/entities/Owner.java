@@ -7,6 +7,7 @@ import Enum.Gender;
 
 public class Owner {
 	
+	private int ID;
 	private String name;
 	private int age;
 	private Address address;
@@ -66,10 +67,21 @@ public class Owner {
 	public Gender getGender() {
 		return gender;
 	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
+	
+	// Conversor de String para ENUM. O valor tem que ser igual
+	public void setGender(String gender) {
+		this.gender = Gender.valueOf(gender);
 	}
+	
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+
 	
 	public void addListPhone(Phone phone) {
 		listPhone.add(phone);
