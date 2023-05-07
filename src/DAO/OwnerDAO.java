@@ -14,12 +14,11 @@ public class OwnerDAO extends Query {
 		List<Owner> listOwner = new ArrayList<>();
 
 		try (var conn = ClassConnector.connectionToMysql();
-				var pstm = conn.prepareStatement(selectAllOwner);
-				var rset = (ResultSet) pstm.executeQuery();) {
+			 var pstm = conn.prepareStatement(selectAllOwner);
+			 var rset = (ResultSet) pstm.executeQuery();) {
 
 			while (rset.next()) {
 
-				// String gender do banco de dados
 				owner.setID(rset.getInt("IDOwner"));
 				owner.setName(rset.getString("Name"));
 				owner.setCpf(rset.getString("CPF"));
@@ -38,14 +37,12 @@ public class OwnerDAO extends Query {
 
 	public static void saveOwner(Owner owner) {
 
-		String enum1 = owner.getGender().name();
-
 		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(insertOwner)) {
 
 			pstm.setString(1, owner.getName());
 			pstm.setString(2, owner.getCpf());
 			pstm.setInt(3, owner.getAge());
-			pstm.setString(4, enum1);
+			pstm.setString(4, owner.getGender().name());
 
 			pstm.execute();
 
@@ -54,7 +51,7 @@ public class OwnerDAO extends Query {
 		}
 	}
 
-	public static void update(Owner owner) {
+	public static void updateOwner(Owner owner) {
 
 		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(updateOwner + "IDOwner = ?")){
 			
