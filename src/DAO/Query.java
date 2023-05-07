@@ -12,7 +12,7 @@ public class Query {
 
 	
 	protected static String insertOwner = "INSERT INTO OWNER (NAME, CPF, AGE, GENDER) VALUES(?, ?, ?, ?)";
-	protected static String insertAdress = "INSERT INTO ADDRESS (STATE, CITY, DISTRICT, STREET, ID_OWNER) VALUES(?, ?, ?, ?, ?)";
+	protected static String insertAddress = "INSERT INTO ADDRESS (STATE, CITY, DISTRICT, STREET, ID_OWNER) VALUES(?, ?, ?, ?, ?)";
 	protected static String insertCar = "INSERT INTO CAR (YEAR, PRICE, COLOR, BRAND, FACTORYNAME, ID_OWNER) VALUES(?, ?, ?, ?, ?, ?, ?)";
 	protected static String insertPhone = "INSERT INTO PHONE (NUMERO, ID_OWNER) VALUES(?, ?)";
 	
