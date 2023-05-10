@@ -9,7 +9,7 @@ import entities.Address;
 
 public class AddressDAO extends Query{
 
-	public static List<Address> listAddress(Address address) {
+	public static List<Address> listAddress() {
 
 		List<Address> listAddress = new ArrayList<>();
 
@@ -18,6 +18,8 @@ public class AddressDAO extends Query{
 			 var rset = (ResultSet) pstm.executeQuery();) {
 
 			while (rset.next()) {
+				
+				Address address = new Address();
 				
 				address.setIDAddress(rset.getInt("IDAddress"));
 				address.setstate(rset.getString("State"));

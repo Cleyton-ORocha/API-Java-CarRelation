@@ -9,7 +9,7 @@ import entities.Phone;
 
 public class PhoneDAO extends Query {
 
-	public static List<Phone> listPhone(Phone phone) {
+	public static List<Phone> listPhone() {
 
 		List<Phone> listPhone = new ArrayList<>();
 
@@ -18,6 +18,8 @@ public class PhoneDAO extends Query {
 			 var rset = (ResultSet) pstm.executeQuery();) {
 
 			while (rset.next()) {
+				
+				Phone phone = new Phone();
 				
 				phone.setPhone(rset.getInt("Phone"));
 				phone.setIDPhone(rset.getInt("IDPhone"));

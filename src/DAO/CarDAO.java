@@ -9,7 +9,7 @@ import entities.Car;
 
 public class CarDAO extends Query{
 
-	public static List<Car> listCar(Car car) {
+	public static List<Car> listCar() {
 
 		List<Car> listCar = new ArrayList<>();
 
@@ -18,6 +18,8 @@ public class CarDAO extends Query{
 			 var rset = (ResultSet) pstm.executeQuery();) {
 
 			while (rset.next()) {
+				
+				Car car = new Car();
 				
 				car.setYear(rset.getInt("Year"));
 				car.setPrice(rset.getDouble("Price"));

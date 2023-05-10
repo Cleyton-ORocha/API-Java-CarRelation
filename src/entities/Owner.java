@@ -32,6 +32,8 @@ public class Owner {
 		this.gender = gender;
 	}
 
+	public Owner() {}
+
 	public String getName() {
 		return name;
 	}

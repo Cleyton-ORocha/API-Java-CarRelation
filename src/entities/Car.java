@@ -14,6 +14,8 @@ public class Car {
 	private String factoryName;
 	private int ID_Owner;
 	
+	public Car() {}
+	
 	public Car(Brand brand, Integer year, Color color, Double price, String factoryName, int ID_Owner) {
 		
 		if(year < 1950 && year >2023) {

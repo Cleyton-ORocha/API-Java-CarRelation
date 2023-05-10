@@ -11,6 +11,9 @@ public class Address {
 	private String street;
 	private int ID_Owner;
 	
+	
+	public Address() {}
+	
 	public Address(UF state, String city, String district, String street) {
 		this.state = state;
 		this.city = city;

@@ -9,15 +9,17 @@ import entities.Owner;
 
 public class OwnerDAO extends Query {
 
-	public static List<Owner> listOwner(Owner owner) {
+	public static List<Owner> listOwner() {
 
 		List<Owner> listOwner = new ArrayList<>();
 
 		try (var conn = ClassConnector.connectionToMysql();
-			 var pstm = conn.prepareStatement(selectAllOwner);
-			 var rset = (ResultSet) pstm.executeQuery();) {
+				var pstm = conn.prepareStatement(selectAllOwner);
+				var rset = (ResultSet) pstm.executeQuery();) {
 
 			while (rset.next()) {
+
+				Owner owner = new Owner();
 
 				owner.setID(rset.getInt("IDOwner"));
 				owner.setName(rset.getString("Name"));
@@ -53,33 +55,74 @@ public class OwnerDAO extends Query {
 
 	public static void updateOwner(Owner owner) {
 
-		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(updateOwner + "IDOwner = ?")){
-			
+		try (var conn = ClassConnector.connectionToMysql();
+				var pstm = conn.prepareStatement(updateOwner + "IDOwner = ?")) {
+
 			pstm.setString(1, owner.getName());
 			pstm.setString(2, owner.getCpf());
 			pstm.setInt(3, owner.getAge());
 			pstm.setString(4, owner.getGender().name());
 			pstm.setInt(5, owner.getID());
-			
+
 			pstm.execute();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public static void deleteOwner(Owner owner) {
 
-		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(deleteIDOwner + "IDOwner = ?");) {
-			
-			pstm.setInt(1, owner.getID()); 
-			
+		try (var conn = ClassConnector.connectionToMysql();
+				var pstm = conn.prepareStatement(deleteIDOwner + "IDOwner = ?");) {
+
+			pstm.setInt(1, owner.getID());
+
 			pstm.execute();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	public static void selectOwnerCars(Owner owner) {
+
+		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(selectOwnerCar + "IDOwner = ?")) {
+
+			pstm.setInt(1, owner.getID());
+
+			pstm.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void selectOwnerAddress(Owner owner) {
+
+		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(selectOwnerAddress + "IDOwner = ?")) {
+
+			pstm.setInt(1, owner.getID());
+
+			pstm.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void selectOwnerPhones(Owner owner) {
+
+		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(selectOwnerPhone + "IDOwner = ?")) {
+
+			pstm.setInt(1, owner.getID());
+
+			pstm.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
