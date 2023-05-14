@@ -1,6 +1,6 @@
 package entities;
 
-import Enum.UF;
+import enums.UF;
 
 public class Address {
 	
@@ -14,11 +14,12 @@ public class Address {
 	
 	public Address() {}
 	
-	public Address(UF state, String city, String district, String street) {
+	public Address(UF state, String city, String district, String street, int ID_Owner) {
 		this.state = state;
 		this.city = city;
 		this.district = district;
 		this.street = street;
+		this.ID_Owner = ID_Owner;
 	}
 	public UF getstate() {
 		return state;

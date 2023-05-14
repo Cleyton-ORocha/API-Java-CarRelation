@@ -1,19 +1,19 @@
 package entities;
 
-import Exceptions.PhoneOutOfRangeException;
+import exceptions.PhoneOutOfRangeException;
 
 public class Phone {
 	
 	private int IDPhone;
-	private int maximumNumberOfDigits = 13;
-	private int phone = 0;
+	public static int maximumNumberOfDigits = 13;
+	private String phone = null;
 	private int quantity = String.valueOf(phone).length();
 	private int ID_Owner;
 	
 	public Phone() {
 	}
 
-	public Phone(int phone) {
+	public Phone(String phone) {
 		
 		if(quantity != maximumNumberOfDigits) {
 			throw new PhoneOutOfRangeException("Number of digits less or greater than 13");
@@ -21,11 +21,11 @@ public class Phone {
 		this.phone = phone;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

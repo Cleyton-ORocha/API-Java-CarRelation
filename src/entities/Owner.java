@@ -3,7 +3,7 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import Enum.Gender;
+import enums.Gender;
 
 public class Owner {
 	
@@ -15,6 +15,10 @@ public class Owner {
 	private String cpf;
 	private Gender gender;
 	
+
+
+	public Owner() {}
+
 	public Owner(String name, int age, String cpf, Gender gender) {
 		
 		this.name = name;
@@ -22,18 +26,8 @@ public class Owner {
 		this.cpf = cpf;
 		this.gender = gender;
 	}
+
 	
-	public Owner(String name, int age, Address address, String cpf, Gender gender) {
-		
-		this.name = name;
-		this.age = age;
-		this.address = address;
-		this.cpf = cpf;
-		this.gender = gender;
-	}
-
-	public Owner() {}
-
 	public String getName() {
 		return name;
 	}
@@ -97,4 +91,12 @@ public class Owner {
 		return listPhone;
 	}
 	
+	
+	public static void main(String[] args) {
+		
+		System.out.println("What's your name?");
+		
+		
+		
+	}
 }
