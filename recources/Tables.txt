@@ -3,7 +3,7 @@ CREATE TABLE Owner(
     Name VARCHAR(100) NOT NULL,
     CPF CHAR(11) NOT NULL UNIQUE,
     Age INT(3) NOT NULL,
-    Gender ENUM("Masculine", "Feminine") NOT NULL
+    Gender ENUM("FAMALE", "MALE") NOT NULL
 );
 
 CREATE TABLE Car(
@@ -22,7 +22,7 @@ CREATE TABLE Address(
     City VARCHAR(50) NOT NULL, 
     District VARCHAR(50) NOT NULL, 
     Street VARCHAR(100) NOT NULL, 
-    ID_Owner INT
+    ID_Owner INT UNIQUE
 );
 
 CREATE TABLE Phone(
@@ -34,40 +34,40 @@ CREATE TABLE Phone(
 ALTER TABLE Car
 ADD CONSTRAINT FK_Owner_Car
 FOREIGN KEY (ID_Owner)
-REFERENCES Owner(IDOwner);
+REFERENCES Owner(IDOwner) ON DELETE CASCADE;
 
 ALTER TABLE Address
 ADD CONSTRAINT FK_Owner_Address
 FOREIGN KEY (ID_Owner)
-REFERENCES Owner(IDOwner);
+REFERENCES Owner(IDOwner) ON DELETE CASCADE;
 
 ALTER TABLE Phone
 ADD CONSTRAINT FK_Owner_Phone
 FOREIGN KEY (ID_Owner)
-REFERENCES Owner(IDOwner);
+REFERENCES Owner(IDOwner) ON DELETE CASCADE;
 
 
 INSERT INTO Owner (Name, CPF, Age, Gender) VALUES 
-('Robert Johnson', '11111111111', 40, 'Masculine'),
-('Emily Davis', '22222222222', 28, 'Feminine'),
-('Michael Wilson', '33333333333', 35, 'Masculine'),
-('Sophia Martinez', '44444444444', 32, 'Feminine'),
-('David Anderson', '55555555555', 45, 'Masculine'),
-('Olivia Taylor', '66666666666', 27, 'Feminine'),
-('James Thomas', '77777777777', 39, 'Masculine'),
-('Ava Garcia', '88888888888', 31, 'Feminine'),
-('Daniel Brown', '99999999999', 37, 'Masculine'),
-('Mia Johnson', '12345678901', 29, 'Feminine'),
-('Alexander Davis', '98765432109', 33, 'Masculine'),
-('Emma Wilson', '87654321098', 30, 'Feminine'),
-('Benjamin Martin', '76543210987', 41, 'Masculine'),
-('Isabella Anderson', '65432109876', 34, 'Feminine'),
-('William Taylor', '54321098765', 42, 'Masculine'),
-('Sophia Garcia', '43210987654', 36, 'Feminine'),
-('Joseph Brown', '32109876543', 43, 'Masculine'),
-('Abigail Johnson', '21098765432', 38, 'Feminine'),
-('Michael Davis', '10987654321', 44, 'Masculine'),
-('Emily Wilson', '09876543210', 26, 'Feminine');
+('Robert Johnson', '11111111111', 40, 'FAMALE'),
+('Emily Davis', '22222222222', 28, 'FAMALE'),
+('Michael Wilson', '33333333333', 35, 'MALE'),
+('Sophia Martinez', '44444444444', 32, 'FAMALE'),
+('David Anderson', '55555555555', 45, 'MALE'),
+('Olivia Taylor', '66666666666', 27, 'FAMALE'),
+('James Thomas', '77777777777', 39, 'MALE'),
+('Ava Garcia', '88888888888', 31, 'FAMALE'),
+('Daniel Brown', '99999999999', 37, 'MALE'),
+('Mia Johnson', '12345678901', 29, 'FAMALE'),
+('Alexander Davis', '98765432109', 33, 'MALE'),
+('Emma Wilson', '87654321098', 30, 'FAMALE'),
+('Benjamin Martin', '76543210987', 41, 'MALE'),
+('Isabella Anderson', '65432109876', 34, 'FAMALE'),
+('William Taylor', '54321098765', 42, 'MALE'),
+('Sophia Garcia', '43210987654', 36, 'FAMALE'),
+('Joseph Brown', '32109876543', 43, 'MALE'),
+('Abigail Johnson', '21098765432', 38, 'FAMALE'),
+('Michael Davis', '10987654321', 44, 'MALE'),
+('Emily Wilson', '09876543210', 26, 'FAMALE');
 
 INSERT INTO Car (Year, Price, Color, Brand, FactoryName, ID_Owner) VALUES
 (2018, 22000.00, 'Silver', 'Ford', 'Ford Factory', 2),
@@ -111,7 +111,7 @@ INSERT INTO Address (State, City, District, Street, ID_Owner) VALUES
 ('PI', 'Teresina', 'Jóquei', 'Avenida R', 19),
 ('SE', 'Aracaju', 'Atalaia', 'Rua S', 20);
 
-INSERT INTO Phone (Numero, ID_Owner) VALUES
+INSERT INTO Phone (PHONE, ID_Owner) VALUES
 ('(11) 98765-4321', 2),
 ('(21) 99999-8888', 3),
 ('(31) 11111-2222', 4),

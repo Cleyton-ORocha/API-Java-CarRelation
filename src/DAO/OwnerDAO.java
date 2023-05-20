@@ -47,6 +47,8 @@ public class OwnerDAO extends Query {
 			pstm.setString(4, owner.getGender().name());
 
 			pstm.execute();
+			
+			System.out.println("Insertion Completed!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,6 +67,8 @@ public class OwnerDAO extends Query {
 			pstm.setInt(5, owner.getID());
 
 			pstm.execute();
+			
+			System.out.println("Update Completed!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,14 +76,16 @@ public class OwnerDAO extends Query {
 
 	}
 
-	public static void deleteOwner(Owner owner) {
+	public static void deleteOwner(Integer IDOwner) {
 
 		try (var conn = ClassConnector.connectionToMysql();
 				var pstm = conn.prepareStatement(deleteIDOwner + "IDOwner = ?");) {
 
-			pstm.setInt(1, owner.getID());
+			pstm.setInt(1, IDOwner);
 
 			pstm.execute();
+			
+			System.out.println("Dono apagado conforme ID");
 
 		} catch (Exception e) {
 			e.printStackTrace();

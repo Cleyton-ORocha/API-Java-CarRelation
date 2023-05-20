@@ -1,19 +1,19 @@
 package enums;
 
 public enum Color {
-	White,
-	Black,
-	Gray,
-	Silver,
-	Red,
-	Blue,
-	Green,
-	Yellow,
-	Orange,
-	Brown,
-	Beige,
-	Purple,
-	Pink,
-	Gold,
-	Bronze
+	WHITE,
+	BLACK,
+	GRAY,
+	SILVER,
+	RED,
+	BLUE,
+	GREEN,
+	YELLOW,
+	ORANGE,
+	BROWN,
+	BEIGE,
+	PURPLE,
+	PINK,
+	GOLD,
+	BRONZE
 }

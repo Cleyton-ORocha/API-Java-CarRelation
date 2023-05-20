@@ -12,13 +12,13 @@ public class Car {
 	private Color color;
 	private Brand brand;
 	private String factoryName;
-	private int ID_Owner;
+	private Integer ID_Owner;
 	
 	public Car() {}
 	
-	public Car(Brand brand, Integer year, Color color, Double price, String factoryName) {
+	public Car(Brand brand, Integer year, Color color, Double price, String factoryName, Integer ID_Owner, int IDCar) {
 		
-		if(year < 1950 && year >2023) {
+		if(year < 1950 || year >2023) {
 			throw new YearCarException("Year of car out of range");
 		}
 		
@@ -27,6 +27,22 @@ public class Car {
 		this.color = color;
 		this.price = price;
 		this.factoryName = factoryName;
+		this.ID_Owner = ID_Owner;
+		this.IDCar = IDCar;
+	}
+	
+	public Car(Brand brand, Integer year, Color color, Double price, String factoryName, Integer ID_Owner) {
+		
+		if(year < 1950 || year >2023) {
+			throw new YearCarException("Year of car out of range");
+		}
+		
+		this.brand = brand;
+		this.year = year;
+		this.color = color;
+		this.price = price;
+		this.factoryName = factoryName;
+		this.ID_Owner = ID_Owner;
 	}
 
 	public Brand getBrand() {

@@ -10,7 +10,7 @@ public class ClassConnector {
 	// Declarando a senha do banco
 	private final static String PASSWORD = "wera";
 	// Declarando o caminho do database com o padrão jdbc
-	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/API-Java-CarRelation";
+	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/api_java_carrelation";
 
 	public static Connection connectionToMysql() throws Exception {
 

@@ -1,18 +1,18 @@
 package enums;
 
 public enum Brand {
-	Toyota,
-	Ford,
-	Chevrolet,
-	Honda,
-	Volkswagen,
+	TOYOTA,
+	FORD,
+	CHEVROLET,
+	HONDA,
+	VOLKSWAGEN,
 	BMW,
-	MercedesBenz,
-	Audi,
-	Nissan,
-	Hyundai,
-	Kia,
-	Volvo,
-	Tesla,
-	Lexus
+	MERCEDESBENZ,
+	AUDI,
+	NISSAN,
+	HYUNDAI,
+	KIA,
+	VOLVO,
+	TESLA,
+	LEXUS
 }	

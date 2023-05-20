@@ -7,7 +7,7 @@ import enums.Gender;
 
 public class Owner {
 	
-	private int ID;
+	private int ID_Owner;
 	private String name;
 	private int age;
 	private Address address;
@@ -15,12 +15,22 @@ public class Owner {
 	private String cpf;
 	private Gender gender;
 	
-
-
 	public Owner() {}
+
+	public Owner(int ID) {
+		this.ID_Owner = ID;
+	}
 
 	public Owner(String name, int age, String cpf, Gender gender) {
 		
+		this.name = name;
+		this.age = age;
+		this.cpf = cpf;
+		this.gender = gender;
+	}
+
+	public Owner(String name, int age, String cpf, Gender gender, int ID_Owner) {
+		this.ID_Owner = ID_Owner;
 		this.name = name;
 		this.age = age;
 		this.cpf = cpf;
@@ -70,11 +80,11 @@ public class Owner {
 	}
 	
 	public int getID() {
-		return ID;
+		return ID_Owner;
 	}
 
 	public void setID(int iD) {
-		ID = iD;
+		ID_Owner = iD;
 	}
 
 

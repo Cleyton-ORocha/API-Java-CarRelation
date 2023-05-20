@@ -21,7 +21,7 @@ public class PhoneDAO extends Query {
 				
 				Phone phone = new Phone();
 				
-				phone.setPhone(rset.getInt("Phone"));
+				phone.setPhone(rset.getString("Phone"));
 				phone.setIDPhone(rset.getInt("IDPhone"));
 				phone.setID_Owner(rset.getInt("ID_OWNER"));
 
@@ -42,10 +42,12 @@ public class PhoneDAO extends Query {
 
 		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(insertPhone)) {
 
-			pstm.setInt(1, phone.getPhone());
+			pstm.setString(1, phone.getPhone());
 			pstm.setDouble(2, phone.getID_Owner());
 	
 			pstm.execute();
+			
+			System.out.println("Insertion Completed!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,12 +58,14 @@ public class PhoneDAO extends Query {
 
 		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(updatePhone + "IDPhone = ?")){
 			
-			pstm.setInt(1, phone.getPhone());
+			pstm.setString(1, phone.getPhone());
 			pstm.setInt(2, phone.getID_Owner());
 			pstm.setInt(3, phone.getIDPhone());
 
 			
 			pstm.execute();
+			
+			System.out.println("Update Completed!");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,13 +73,15 @@ public class PhoneDAO extends Query {
 		
 	}
 
-	public static void deletePhone(Phone phone) {
+	public static void deletePhone(Integer IDOwner) {
 
 		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(deleteIDPhone + "IDPhone = ?");) {
 			
-			pstm.setInt(1, phone.getIDPhone()); 
+			pstm.setInt(1, IDOwner); 
 			
 			pstm.execute();
+			
+			System.out.println("Telefone apagado conforme o ID do dono");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

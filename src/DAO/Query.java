@@ -13,15 +13,15 @@ public class Query {
 	
 	protected static String insertOwner = "INSERT INTO OWNER (NAME, CPF, AGE, GENDER) VALUES(?, ?, ?, ?)";
 	protected static String insertAddress = "INSERT INTO ADDRESS (STATE, CITY, DISTRICT, STREET, ID_OWNER) VALUES(?, ?, ?, ?, ?)";
-	protected static String insertCar = "INSERT INTO CAR (YEAR, PRICE, COLOR, BRAND, FACTORYNAME, ID_OWNER) VALUES(?, ?, ?, ?, ?, ?, ?)";
-	protected static String insertPhone = "INSERT INTO PHONE (NUMERO, ID_OWNER) VALUES(?, ?)";
+	protected static String insertCar = "INSERT INTO CAR (YEAR, PRICE, COLOR, BRAND, FACTORYNAME, ID_OWNER) VALUES(?, ?, ?, ?, ?, ?)";
+	protected static String insertPhone = "INSERT INTO PHONE (PHONE, ID_OWNER) VALUES(?, ?)";
 	
 	
 	protected static String updateOwner = "UPDATE Owner SET "
 			  + "NAME = ?,"
 			  + "CPF = ?,"
 			  + "AGE = ?," 
-			  + "GENDER = ?,"
+			  + "GENDER = ?"
 			  + "WHERE "; 
 	
 	protected static String updateAddress = "UPDATE ADDRESS SET "
@@ -29,7 +29,7 @@ public class Query {
 			  + "CITY = ?,"
 			  + "DISTRICT = ?," 
 			  + "STREET = ?,"
-			  + "ID_OWNER = ?"
+			  + "ID_OWNER = ? "
 			  + "WHERE "; 
 	
 	protected static String updateCar = "UPDATE CAR SET "
@@ -37,13 +37,13 @@ public class Query {
 			  + "PRICE = ?,"
 			  + "COLOR = ?," 
 			  + "BRAND = ?,"
-			  + "FACTORYNAME = ?"
-			  + "ID_OWNER = ?"
+			  + "FACTORYNAME = ?,"
+			  + "ID_OWNER = ? "
 			  + "WHERE "; 
 	
 	protected static String updatePhone = "UPDATE PHONE SET "
-			  + "NUMERO = ?"
-			  + "ID_OWNER = ?"
+			  + "PHONE = ?,"
+			  + "ID_OWNER = ? "
 			  + "WHERE "; 
 	
 	// DANGER!!!
