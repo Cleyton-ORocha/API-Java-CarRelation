@@ -2,7 +2,6 @@ package entities;
 
 import enums.Brand;
 import enums.Color;
-import exceptions.YearCarException;
 
 public class Car {
 
@@ -18,10 +17,6 @@ public class Car {
 	
 	public Car(Brand brand, Integer year, Color color, Double price, String factoryName, Integer ID_Owner, int IDCar) {
 		
-		if(year < 1950 || year >2023) {
-			throw new YearCarException("Year of car out of range");
-		}
-		
 		this.brand = brand;
 		this.year = year;
 		this.color = color;
@@ -32,10 +27,6 @@ public class Car {
 	}
 	
 	public Car(Brand brand, Integer year, Color color, Double price, String factoryName, Integer ID_Owner) {
-		
-		if(year < 1950 || year >2023) {
-			throw new YearCarException("Year of car out of range");
-		}
 		
 		this.brand = brand;
 		this.year = year;

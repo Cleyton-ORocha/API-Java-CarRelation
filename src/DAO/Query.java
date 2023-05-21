@@ -53,21 +53,21 @@ public class Query {
 	protected static String deleteIDPhone = "DELETE FROM PHONE WHERE ";
 
 	
-	protected static String selectOwnerCar = "SELECT W.IDOwner, W.NAME, W.CPF, W.Age, W.Gender, C.BRAND, C.PRICE, C.COLOR, C.FactoryName, C.Year "
-			+ "FROM OWNER W"
-			+ "INNER JOIN CAR C"
-			+ "ON W.IDOwner = C.ID_Owner"
-			+ "WHERE";
+	protected static String selectOwnerCar = "SELECT W.IDOwner, W.NAME, C.BRAND, C.PRICE, C.COLOR, C.FactoryName, C.Year "
+			+ "FROM OWNER W "
+			+ "INNER JOIN CAR C "
+			+ "ON W.IDOwner = C.ID_Owner "
+			+ "WHERE W.IDOwner = ?";
 	
-	protected static String selectOwnerAddress = "SELECT W.IDOwner, W.NAME, W.CPF, W.Age, W.Gender, A.STATE, A.CITY, A.DISTRICT, A.STREET"  
-			+ "FROM OWNER W"
-			+ "INNER JOIN ADDRESS A"
-			+ "ON A.ID_Owner = W.IDOwner"
-			+ "WHERE ";
+	protected static String selectOwnerAddress = "SELECT W.IDOwner, W.NAME, A.STATE, A.CITY, A.DISTRICT, A.STREET "  
+			+ "FROM OWNER W "
+			+ "INNER JOIN ADDRESS A "
+			+ "ON A.ID_Owner = W.IDOwner "
+			+ "WHERE W.IDOwner = ?";
 	
-	protected static String selectOwnerPhone = "SELECT W.IDOwner, W.NAME, W.CPF, W.Age, W.Gender, P.PHONE"
-			+ "FROM OWNER W"
-			+ "INNER JOIN PHONE P"
-			+ "ON P.ID_Owner = W.IDOwner" 
-			+ "WHERE ";
+	protected static String selectOwnerPhone = "SELECT W.IDOwner, W.NAME, P.PHONE "
+			+ "FROM OWNER W "
+			+ "INNER JOIN PHONE P "
+			+ "ON P.ID_Owner = W.IDOwner " 
+			+ "WHERE W.IDOwner = ?";
 }

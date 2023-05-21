@@ -16,7 +16,7 @@ public class InitialTreatment {
 
 	public static Integer treatmentMenu(Integer quantityItems, String namePrint) {
 
-		// Deixa o método mais eficaz
+		// Make the most effective method
 		quantityItems++;
 		List<Integer> vet = new ArrayList<>();
 		for (int i = 1; i != quantityItems; i++) {
@@ -50,23 +50,23 @@ public class InitialTreatment {
 
 	}
 
-	public static Object mes(String metodo) {
+	public static Object mes(String methodName) {
 		try {
 			Prints checkPrint = new Prints();
 
-			// Criar uma instância da classe
-			Class<?> classe = checkPrint.getClass();
+			 // Create an instance of the class
+		    Class<?> clazz = checkPrint.getClass();
 
-			// Obter o método com base no nome passado como parâmetro
-			Method meto = classe.getDeclaredMethod(metodo);
+		    // Get the method based on the name passed as a parameter
+		    Method method = clazz.getDeclaredMethod(methodName);
 
-			// Invocar o método na instância da classe
-			return meto.invoke(checkPrint);
+		    // Invoke the method on the instance of the class
+		    return method.invoke(checkPrint);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return metodo;
+		return methodName;
 	}
 
 	public static Brand tratamentBrand() {
@@ -75,15 +75,15 @@ public class InitialTreatment {
 		Brand brand = null;
 
 		while (brand == null) {
-			System.out.println("Qual a marca do carro?");
+			System.out.println("What's the car brand?");
 			try {
 				brand = Brand.valueOf(scan.nextLine().toUpperCase());
 			} catch (IllegalArgumentException i) {
-				System.out.println("Marca inválida\n" + "Marcas disponiveis:\n");
+				System.out.println("Invalid Brand\n" + "Available brands:\n");
 				for (Brand br : Brand.values()) {
 					System.out.println(br + " ");
 				}
-				System.out.println("Digite Novamente:");
+				System.out.println("Type it again:");
 			}
 		}
 
@@ -98,12 +98,12 @@ public class InitialTreatment {
 			try {
 				color = Color.valueOf(scan.nextLine().toUpperCase());
 			} catch (IllegalArgumentException i) {
-				System.out.println("Cor inválida\n" + "Cores disponiveis:\n");
+				System.out.println("Invalid Color\n" + "Available Colors:\n");
 				for (Color cor : Color.values()) {
 					System.out.println(cor);
 				}
 
-				System.out.println("Digite Novamente:");
+				System.out.println("Type it again:");
 			}
 		}
 		return color;
@@ -117,12 +117,12 @@ public class InitialTreatment {
 			try {
 				gender = Gender.valueOf(scan.nextLine().toUpperCase());
 			} catch (IllegalArgumentException i) {
-				System.out.println("Opção inválida\n" + "Gêneros disponiveis:\n");
+				System.out.println("Invalid option\n" + "Available Genders:\n");
 				for (Gender genders : Gender.values()) {
 					System.out.println(genders);
 				}
 
-				System.out.println("Digite Novamente:");
+				System.out.println("Type it again:");
 			}
 		}
 		return gender;
@@ -137,12 +137,12 @@ public class InitialTreatment {
 			try {
 				uf = UF.valueOf(scan.nextLine().toUpperCase());
 			} catch (IllegalArgumentException i) {
-				System.out.println("Estado inválido\n" + "UFs disponiveis:\n");
+				System.out.println("Invalid State\n" + "Available UFs:\n");
 				for (UF ufs: UF.values()) {
 					System.out.println(ufs);
 				}
 
-				System.out.println("Digite Novamente:");
+				System.out.println("Type it again:");
 			}
 		}
 		return uf;
@@ -150,10 +150,10 @@ public class InitialTreatment {
 
 	public static Integer tratamentIdOwner() {
 
-		System.out.println("Qual o id do Dono?");
+		System.out.println("What is the owner's id??");
 		while (!scan.hasNextInt()) {
 			System.out.println("Enter only integers");
-			System.out.println("Qual o id do Dono?");
+			System.out.println("What is the owner's id?");
 			scan.next();
 		}
 		Integer ID_Owner = scan.nextInt();
@@ -163,10 +163,10 @@ public class InitialTreatment {
 	
 	public static Integer tratamentIdCar() {
 
-		System.out.println("Qual o id do Carro?");
+		System.out.println("What is the car's id?");
 		while (!scan.hasNextInt()) {
 			System.out.println("Enter only integers");
-			System.out.println("Qual o id do Carro?");
+			System.out.println("What is the car's id?");
 			scan.next();
 		}
 		Integer ID_CAR = scan.nextInt();
@@ -176,9 +176,9 @@ public class InitialTreatment {
 	
 	public static Integer tratamentIdPhone() {
 
-		System.out.println("Qual o id do telefone?");
+		System.out.println("What is the car's id?");
 		while (!scan.hasNextInt()) {
-			System.out.println("Qual o id do telefone?");
+			System.out.println("What is the phone's id?");
 			System.out.println("Enter only integers");
 			scan.next();
 		}
@@ -192,7 +192,7 @@ public class InitialTreatment {
 		Integer age = null;
 
 		while (age == null || age < 18 || age > 120) {
-			System.out.println("Qual a idade do Dono?");
+			System.out.println("How old is the Owner?");
 
 			try {
 				age = Integer.parseInt(scan.next());
@@ -202,7 +202,7 @@ public class InitialTreatment {
 			}
 
 			if (age < 18 || age >= 120)
-				System.out.println("Adicione somente numeros entre 18 a 120 anos");
+				System.out.println("Add only numbers between 18 to 120 years");
 
 		}
 		return age;
@@ -212,17 +212,17 @@ public class InitialTreatment {
 		scan.nextLine();
 		
 		while (true) {
-			System.out.println("Qual o CPF do Dono?");
+			System.out.println("What is the Owner's CPF?");
 
 			while (true) {
-				System.out.print("Digite o CPF (11 dígitos): ");
+				System.out.print("Enter the CPF (11 digits): ");
 				String cpfString = scan.nextLine().replaceAll("[^\\d]", "");
 
 				if (cpfString.matches("\\d{11}")) {
 					return cpfString;
 				}
 
-				System.out.println("CPF inválido! Digite um CPF válido com 11 dígitos.");
+				System.out.println("Invalid CPF! Enter a valid 11-digit CPF.");
 			}
 		}
 
@@ -232,17 +232,17 @@ public class InitialTreatment {
 		scan.nextLine();
 		
 		while (true) {
-			System.out.println("Qual o número do telefone?");
+			System.out.println("What's the phone number?");
 
 			while (true) {
-				System.out.print("Digite o telefone (11 dígitos): ");
+				System.out.print("Enter phone number (11 digits): ");
 				String cpfString = scan.nextLine().replaceAll("[^\\d]", "");
 
 				if (cpfString.matches("\\d{11}")) {
 					return cpfString;
 				}
 
-				System.out.println("\nTelefone inválido! \nDigite um telefone válido com 11 dígitos.");
+				System.out.println("\nInvalid phone! \\nPlease enter a valid 11-digit phone number.");
 			}
 		}
 	}

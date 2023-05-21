@@ -1,6 +1,5 @@
 package DAO;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class OwnerDAO extends Query {
 
 		try (var conn = ClassConnector.connectionToMysql();
 				var pstm = conn.prepareStatement(selectAllOwner);
-				var rset = (ResultSet) pstm.executeQuery();) {
+				var rset = pstm.executeQuery();) {
 
 			while (rset.next()) {
 
@@ -47,7 +46,7 @@ public class OwnerDAO extends Query {
 			pstm.setString(4, owner.getGender().name());
 
 			pstm.execute();
-			
+
 			System.out.println("Insertion Completed!");
 
 		} catch (Exception e) {
@@ -67,7 +66,7 @@ public class OwnerDAO extends Query {
 			pstm.setInt(5, owner.getID());
 
 			pstm.execute();
-			
+
 			System.out.println("Update Completed!");
 
 		} catch (Exception e) {
@@ -84,7 +83,7 @@ public class OwnerDAO extends Query {
 			pstm.setInt(1, IDOwner);
 
 			pstm.execute();
-			
+
 			System.out.println("Dono apagado conforme ID");
 
 		} catch (Exception e) {
@@ -93,42 +92,4 @@ public class OwnerDAO extends Query {
 
 	}
 
-	public static void selectOwnerCars(Owner owner) {
-
-		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(selectOwnerCar + "IDOwner = ?")) {
-
-			pstm.setInt(1, owner.getID());
-
-			pstm.execute();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static void selectOwnerAddress(Owner owner) {
-
-		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(selectOwnerAddress + "IDOwner = ?")) {
-
-			pstm.setInt(1, owner.getID());
-
-			pstm.execute();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static void selectOwnerPhones(Owner owner) {
-
-		try (var conn = ClassConnector.connectionToMysql(); var pstm = conn.prepareStatement(selectOwnerPhone + "IDOwner = ?")) {
-
-			pstm.setInt(1, owner.getID());
-
-			pstm.execute();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 }

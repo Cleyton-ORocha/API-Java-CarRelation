@@ -16,14 +16,14 @@ public class InsertTratament {
 	private static Scanner scan = new Scanner(System.in);
 	public static Owner InsertOwner(String type) {
 
-		System.out.println("Qual o nome do Dono?");
+		System.out.println("What's the owner's name?");
 		String name = scan.nextLine();
 
 		int age = InitialTreatment.tratamentAge();
 
 		String CPF = InitialTreatment.tratamentCPF();
 
-		System.out.println("Qual o seu sexo?");
+		System.out.println("What's your gender?");
 		Gender gender = InitialTreatment.tratamentGender();
 
 		if (type == "INSERT") {
@@ -49,17 +49,17 @@ public class InsertTratament {
 
 		Brand brand = InitialTreatment.tratamentBrand();
 
-		System.out.println("Qual a cor do carro?");
+		System.out.println("What color is the car?");
 		Color color = InitialTreatment.tratamentColor();
 
-		System.out.println("Qual o ano do carro?");
+		System.out.println("What year is the car?");
 
 		// Tratamento do ano do carro
 		while (year == null || year <= 1950 || year >= 2023) {
 
 			while (!scan.hasNextInt()) {
 				System.out.println("Enter only integers");
-				System.out.println("Qual o ano do carro?");
+				System.out.println("What year is the car?");
 				scan.next();
 			}
 
@@ -70,17 +70,17 @@ public class InsertTratament {
 		}
 
 		// Tratamento do valor do carro
-		System.out.println("Qual o valor do carro?");
+		System.out.println("What is the value of the car?");
 		while (!scan.hasNextDouble()) {
 			System.out.println("Enter only numbers");
-			System.out.println("Qual o valor do carro?");
+			System.out.println("What is the value of the car?");
 			scan.next();
 		}
 		double price = scan.nextDouble();
 
 		scan.nextLine();
 
-		System.out.println("Qual o nome da fabrica do carro?");
+		System.out.println("What is the name of the car factory?");
 		String factoryName = scan.nextLine();
 
 		if (type.toUpperCase() == "INSERT") {
@@ -104,16 +104,16 @@ public class InsertTratament {
 
 		int ID_Owner = InitialTreatment.tratamentIdOwner();
 
-		System.out.println("Qual a UF do seu estado? (Digite apenas as siglas)");
+		System.out.println("What is the UF of your state? (Type only the abbreviations)");
 		UF state = InitialTreatment.tratamentUF();
 
-		System.out.println("Qual é a sua cidade?");
+		System.out.println("What is your city?");
 		String city = scan.nextLine();
 
-		System.out.println("Qual é o nome de seu bairro?");
+		System.out.println("What is the name of your neighborhood?");
 		String district = scan.nextLine();
 
-		System.out.println("Qual o nome de sua rua?");
+		System.out.println("What is your street name?");
 		String street = scan.nextLine();
 
 		

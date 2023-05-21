@@ -5,31 +5,31 @@ import java.sql.DriverManager;
 
 public class ClassConnector {
 
-	// Declarando o username do banco
+	// Declare the database username
 	private final static String USERNAME = "root";
-	// Declarando a senha do banco
+	// Declare the database password
 	private final static String PASSWORD = "wera";
-	// Declarando o caminho do database com o padrão jdbc
+	// Declare the database URL using the JDBC format
 	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/api_java_carrelation";
 
 	public static Connection connectionToMysql() throws Exception {
 
-		// Apontando para o Driver
-		Class.forName("com.mysql.cj.jdbc.Driver");
+	    // Point to the driver
+	    Class.forName("com.mysql.cj.jdbc.Driver");
 
-		// Passando as informações para o driver e conectando ao banco
-		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+	    // Provide the information to the driver and connect to the database
+	    Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 
-		return connection;
+	    return connection;
 	}
 
 	public static void main(String[] args) throws Exception {
-		Connection conexao = connectionToMysql();
+	    Connection connection = connectionToMysql();
 
-		// Verifica se o banco já está conectado para não haver duplicadas
-		if (conexao != null) {
-			System.out.println("Conexão obtida");
-			conexao.close();
-		}
+	    // Check if the connection to the database is established to avoid duplicates
+	    if (connection != null) {
+	        System.out.println("Connection obtained");
+	        connection.close();
+	    }
 	}
 }
