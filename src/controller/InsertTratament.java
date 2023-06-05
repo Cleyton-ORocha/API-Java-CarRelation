@@ -19,18 +19,18 @@ public class InsertTratament {
 		System.out.println("What's the owner's name?");
 		String name = scan.nextLine();
 
-		int age = InitialTreatment.tratamentAge();
+		int age = dataTratament.tratamentAge();
 
-		String CPF = InitialTreatment.tratamentCPF();
+		String CPF = dataTratament.tratamentCPF();
 
 		System.out.println("What's your gender?");
-		Gender gender = InitialTreatment.tratamentGender();
+		Gender gender = dataTratament.tratamentGender();
 
 		if (type == "INSERT") {
 			return new Owner(name, age, CPF, gender);
 		} else if (type == "UPDATE") {
 
-			int ID_Owner = InitialTreatment.tratamentIdOwner();
+			int ID_Owner = dataTratament.tratamentIdOwner();
 
 			return new Owner(name, age, CPF, gender, ID_Owner);
 		} else {
@@ -45,12 +45,12 @@ public class InsertTratament {
 
 		Integer year = null;
 
-		Integer ID_Owner = InitialTreatment.tratamentIdOwner();
+		Integer ID_Owner = dataTratament.tratamentIdOwner();
 
-		Brand brand = InitialTreatment.tratamentBrand();
+		Brand brand = dataTratament.tratamentBrand();
 
 		System.out.println("What color is the car?");
-		Color color = InitialTreatment.tratamentColor();
+		Color color = dataTratament.tratamentColor();
 
 		System.out.println("What year is the car?");
 
@@ -88,7 +88,7 @@ public class InsertTratament {
 			return new Car(brand, year, color, price, factoryName, ID_Owner);
 		} else if (type.toUpperCase() == "UPDATE") {
 
-			int IDCar = InitialTreatment.tratamentIdCar();
+			int IDCar = dataTratament.tratamentIdCar();
 			
 			return new Car(brand, year, color, price, factoryName, ID_Owner, IDCar);
 
@@ -102,10 +102,10 @@ public class InsertTratament {
 
 	public static Address InsertAddress() {
 
-		int ID_Owner = InitialTreatment.tratamentIdOwner();
+		int ID_Owner = dataTratament.tratamentIdOwner();
 
 		System.out.println("What is the UF of your state? (Type only the abbreviations)");
-		UF state = InitialTreatment.tratamentUF();
+		UF state = dataTratament.tratamentUF();
 
 		System.out.println("What is your city?");
 		String city = scan.nextLine();
@@ -126,9 +126,9 @@ public class InsertTratament {
 
 	public static Phone InsertPhone(String type) {
 
-		int ID_Owner = InitialTreatment.tratamentIdOwner();
+		int ID_Owner = dataTratament.tratamentIdOwner();
 
-		String phone = InitialTreatment.tratamentPhone();
+		String phone = dataTratament.tratamentPhone();
 
 		if (type == "INSERT") {
 			
@@ -138,7 +138,7 @@ public class InsertTratament {
 
 		else if (type == "UPDATE") {
 
-			int IDPhone = InitialTreatment.tratamentIdPhone();
+			int IDPhone = dataTratament.tratamentIdPhone();
 			
 			
 			return new Phone(phone, ID_Owner, IDPhone);

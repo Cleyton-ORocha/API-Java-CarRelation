@@ -11,7 +11,7 @@ import enums.Color;
 import enums.Gender;
 import enums.UF;
 
-public class InitialTreatment {
+public class dataTratament {
 	private static Scanner scan = new Scanner(System.in);
 
 	public static Integer treatmentMenu(Integer quantityItems, String namePrint) {

@@ -1,12 +1,9 @@
-
-
-
 import DAO.AddressDAO;
 import DAO.CarDAO;
 import DAO.OwnerDAO;
 import DAO.PhoneDAO;
 import DAO.PrintTable;
-import controller.InitialTreatment;
+import controller.dataTratament;
 import controller.InsertTratament;
 
 public class Main {
@@ -15,57 +12,46 @@ public class Main {
 
 		while (true) {
 
-			Integer cod = InitialTreatment.treatmentMenu(3, "firstMenu");
+			Integer cod = dataTratament.treatmentMenu(3, "firstMenu");
 
-				if (cod == 1) {
-
-					while (true) {
+					while (cod == 1) {
 						
-						cod = InitialTreatment.treatmentMenu(5, "secondMenu");
+						cod = dataTratament.treatmentMenu(5, "secondMenu");
 						
-						if (cod == 1) {
-							
-							while (true) {
+						while (cod == 1) {
 								
-								cod = InitialTreatment.treatmentMenu(6, "thirdMenu");
+								cod = dataTratament.treatmentMenu(6, "thirdMenu");
 								
 								if (cod == 1) OwnerDAO.saveOwner(InsertTratament.InsertOwner("INSERT"));
 								if (cod == 2) CarDAO.saveCar(InsertTratament.InsertCar("INSERT"));
 								if (cod == 3) AddressDAO.saveAddress(InsertTratament.InsertAddress());
 								if (cod == 4) PhoneDAO.savePhone(InsertTratament.InsertPhone("INSERT"));
-								if (cod == 5)
-									break;
-								if (cod == 6) {
-									System.out.println("Application closed. Thanks!");
-									System.exit(0);
-								} 
-							}
-						}
-						
-					
-						else if (cod == 2) {
-
-							while (true) {
-								
-								cod = InitialTreatment.treatmentMenu(6, "fourthMenu");
-								
-								if (cod == 1) OwnerDAO.deleteOwner(InitialTreatment.tratamentIdOwner());
-								if (cod == 2) CarDAO.deleteCar(InitialTreatment.tratamentIdCar());
-								if (cod == 3) AddressDAO.deleteAddress(InitialTreatment.tratamentIdOwner());
-								if (cod == 4) PhoneDAO.deletePhone(InitialTreatment.tratamentIdPhone());
 								if (cod == 5) break;
 								if (cod == 6) {
 									System.out.println("Application closed. Thanks!");
 									System.exit(0);
 								} 
 							}
-						}
 						
-						else if (cod == 3) {
-
-							while (true) {
+							while (cod == 2) {
 								
-								cod = InitialTreatment.treatmentMenu(6, "fifthMenu");
+								cod = dataTratament.treatmentMenu(6, "fourthMenu");
+								
+								if (cod == 1) OwnerDAO.deleteOwner(dataTratament.tratamentIdOwner());
+								if (cod == 2) CarDAO.deleteCar(dataTratament.tratamentIdCar());
+								if (cod == 3) AddressDAO.deleteAddress(dataTratament.tratamentIdOwner());
+								if (cod == 4) PhoneDAO.deletePhone(dataTratament.tratamentIdPhone());
+								if (cod == 5) break;
+								if (cod == 6) {
+									System.out.println("Application closed. Thanks!");
+									System.exit(0);
+								} 
+							}
+						
+
+							while (cod == 3) {
+								
+								cod = dataTratament.treatmentMenu(6, "fifthMenu");
 								
 								if (cod == 1) OwnerDAO.updateOwner(InsertTratament.InsertOwner("UPDATE"));
 								if (cod == 2) CarDAO.updateCar(InsertTratament.InsertCar("UPDATE"));
@@ -77,25 +63,23 @@ public class Main {
 									System.exit(0);
 								} 
 							}
-						}
 						
-						else if (cod == 4) break;
-						else if (cod == 5) {
+						if (cod == 4) break;
+						if (cod == 5) {
 							System.out.println("Application closed. Thanks!");
 							System.exit(0);
 						}
 					}
-				}
-				if (cod == 2) {
 					
-					while (true) {
+					
+					while (cod == 2) {
 						
-						cod = InitialTreatment.treatmentMenu(6, "sixthMenu");
+						cod = dataTratament.treatmentMenu(6, "sixthMenu");
 						
-						if (cod == 1) PrintTable.selectOwner(InitialTreatment.tratamentIdOwner());
-						if (cod == 2) PrintTable.selectCarOwner(InitialTreatment.tratamentIdOwner());
-						if (cod == 3) PrintTable.selectAddress(InitialTreatment.tratamentIdOwner());
-						if (cod == 4) PrintTable.selectPhones(InitialTreatment.tratamentIdOwner());
+						if (cod == 1) PrintTable.selectOwner(dataTratament.tratamentIdOwner());
+						if (cod == 2) PrintTable.selectCarOwner(dataTratament.tratamentIdOwner());
+						if (cod == 3) PrintTable.selectAddress(dataTratament.tratamentIdOwner());
+						if (cod == 4) PrintTable.selectPhones(dataTratament.tratamentIdOwner());
 						if (cod == 5) break;
 						if (cod == 6) {
 							System.out.println("Application closed. Thanks!");
@@ -103,9 +87,6 @@ public class Main {
 						} 
 					}
 					
-					
-				}
-				
 				if (cod == 3) {
 					System.out.println("Application closed. Thanks!");
 					System.exit(0);
