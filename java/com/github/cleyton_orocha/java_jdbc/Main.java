@@ -9,11 +9,12 @@ import controller.dataTratament;
 public class Main {
 
 	public static void main(String[] args) {
-
+		primaryMenu:
 		while (true) {
 
 			Integer cod = dataTratament.treatmentMenu(3, "firstMenu");
 
+					
 					while (cod == 1) {
 						
 						cod = dataTratament.treatmentMenu(5, "secondMenu");
@@ -26,11 +27,13 @@ public class Main {
 								if (cod == 2) CarDAO.saveCar(InsertTratament.InsertCar("INSERT"));
 								if (cod == 3) AddressDAO.saveAddress(InsertTratament.InsertAddress());
 								if (cod == 4) PhoneDAO.savePhone(InsertTratament.InsertPhone("INSERT"));
-								if (cod == 5) break;
+								if (cod == 5) continue primaryMenu;
 								if (cod == 6) {
 									System.out.println("Application closed. Thanks!");
 									System.exit(0);
 								} 
+
+								
 							}
 						
 							while (cod == 2) {
