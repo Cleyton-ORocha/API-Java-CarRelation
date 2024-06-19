@@ -1,0 +1,18 @@
+package enums;
+
+public enum Brand {
+	TOYOTA,
+	FORD,
+	CHEVROLET,
+	HONDA,
+	VOLKSWAGEN,
+	BMW,
+	MERCEDESBENZ,
+	AUDI,
+	NISSAN,
+	HYUNDAI,
+	KIA,
+	VOLVO,
+	TESLA,
+	LEXUS
+}	
