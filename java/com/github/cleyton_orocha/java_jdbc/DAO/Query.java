@@ -16,7 +16,7 @@ public class Query {
 	protected static String insertPhone = "INSERT INTO PHONE (PHONE, ID_OWNER) VALUES(?, ?)";
 	
 	
-	protected static String updateOwner = "UPDATE Owner SET "
+	protected static String updateOwner = "UPDATE OWNER SET "
 			  + "NAME = ?,"
 			  + "CPF = ?,"
 			  + "AGE = ?," 
@@ -46,7 +46,7 @@ public class Query {
 			  + "WHERE "; 
 	
 	// DANGER!!!
-	protected static String deleteIDOwner = "DELETE FROM Owner WHERE ";
+	protected static String deleteIDOwner = "DELETE FROM OWNER WHERE ";
 	protected static String deleteIDAddress = "DELETE FROM ADDRESS WHERE ";
 	protected static String deleteIDCar = "DELETE FROM CAR WHERE ";
 	protected static String deleteIDPhone = "DELETE FROM PHONE WHERE ";
